@@ -1,0 +1,575 @@
+/* 1. Root Variables */
+:root {
+    --primary-color: #0b2b1c; /* Dark Background */
+    --secondary-color: #002819; /* Sage Green / Subtle Lavender */
+    --text-color: #ffffff; /* White Text */
+    --dark-mode-bg: #05200d;
+    --dark-mode-text: #fff;
+    --card-bg: #f8f8f8; /* Light Card Background */
+    --card-shadow: rgb(248, 241, 241);
+    --accent-color: #053121; /* Accent Color */
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 0;
+  }
+  
+/* 2. Global Styles */
+body {
+    font-family: Merryweather, serif;
+    font-weight: 300;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    text-align: left;
+    margin: 1;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background-color: var(--dark-mode-bg);
+    color: var(--dark-mode-text);
+}
+
+.hamburger-menu {
+    display: none; /* Hidden by default for large screens */
+    font-size: 1.8rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Navbar */
+.navbar {
+    display: flex-end;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+body.dark-mode .navbar {
+    background-color: var(--dark-mode-bg);
+}
+
+.navbar {
+    width: 90%;
+    position: fixed; /* Keeps it at the top while scrolling */
+    top: 1%;
+    left: 8%;
+    display: flex;
+    justify-content: flex-end; /* Aligns items to the right */
+    background-color: var(--background-color); /* Adjust the background color as needed */
+    padding: 10px 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for aesthetics */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 20px;
+    background-color: transparent;
+    border: 2px solid #ffffff; /* Added white contrast border */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.nav-link:hover {
+    background-color: #2c4f3b;
+    transform: scale(1.1);
+    border-color: #ffffff; /* Optionally change the border color on hover */
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #0d382a, #083b2d), url('hero-image.jpg') center/cover;
+    text-align: center;
+    padding: 150px 20px;
+    color: var(--text-color);
+}
+
+/* Styling for the paragraph */
+.hero p {
+    font-size: 1.5rem; /* Adjust font size for readability */
+    font-weight: 300; /* Light weight for subtle elegance */
+    color: rgba(255, 255, 255, 0.8); /* Soft white color */
+    margin-top: 20px; /* Space between heading and paragraph */
+    margin-bottom: 20px; /* Space between paragraph and button */
+    text-align: center; /* Center-align text */
+    line-height: 1.8; /* Better line spacing */
+}
+
+/* Styling for the button */
+.hero .btn {
+    font-size: 1.2rem; /* Slightly larger font size for emphasis */
+    font-weight: 600; /* Medium-bold weight for the button text */
+    color: #ffffff; /* White text */
+    background: linear-gradient(to right, #2e8654, #2a4e0d);  /* Gradient background */
+    border: none; /* Remove default border */
+    border-radius: 30px; /* Rounded corners */
+    padding: 12px 25px; /* Adjust padding for better proportions */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+/* Hover effect for the button */
+.hero .btn:hover {
+    background: linear-gradient(to right, #2e8654, #2a4e0d); /* Reverse gradient */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); /* Enhance shadow on hover */
+}
+
+/* Optional: Additional responsiveness for smaller screens */
+@media (max-width: 768px) {
+    .hero p {
+        font-size: 1.2rem; /* Smaller font size for paragraph */
+    }
+    .hero .btn {
+        font-size: 1rem; /* Adjust button font size */
+        padding: 10px 20px; /* Smaller padding */
+    }
+}
+
+
+.hero h1 {
+    font-size: 6rem; /* Adjusted size for better visibility */
+    font-weight: bold;
+    letter-spacing: 2px; /* Add space between letters */
+    text-transform: titlecase;
+    background: linear-gradient(to right, #ffffff, #977357); /* Gradient text color */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 
+        4px 4px 6px rgba(0, 0, 0, 0.3), /* Light shadow for depth */
+        -2px -2px 5px rgba(255, 255, 255, 0.6); /* Contrast border effect */
+    overflow: hidden; /* Ensures that the content is hidden before animation starts */
+    white-space: nowrap; /* Prevents text wrapping */
+    display: inline-block; /* Inline block for typewriter animation */
+    border-right: 2px solid rgba(255, 255, 255, 0.75); /* Blinking cursor effect */
+    animation: typewriter 6s steps(6, end) 1s forwards, blink 0.5s step-end infinite; /* Combined typewriter and blinking cursor */
+}
+
+/* Typewriter Animation */
+@keyframes typewriter {
+    0% {
+        width: 0;
+    }
+    33% {
+        width: 30%; /* Show first 3 words */
+    }
+    66% {
+        width: 60%; /* Show next 3 words */
+    }
+    100% {
+        width: 100%; /* Show full text */
+    }
+}
+
+/* Cursor Blinking Animation */
+@keyframes blink {
+    from {
+        border-right-color: rgba(255, 255, 255, 0.75);
+    }
+    to {
+        border-right-color: transparent;
+    }
+}
+
+/* image */
+
+.about {
+    padding: 50px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* Profile image */
+.profileimg {
+    display: inline-block;
+    position: relative;
+    width: 200px; /* Adjust the size as needed */
+    height: 200px; /* Adjust the size as needed */
+    border-radius: 50%; /* Makes it circular */
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Adds a shadow for sticker effect */
+    border: 4px solid rgb(0, 0, 0); /* Optional white border */
+    background: linear-gradient(135deg, #e3f2fd, #c8e6c9); /* Optional colorful background */
+}
+
+.profileimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+/* Profile image */
+
+/* about */
+.about-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #ffffff;
+    position: relative;
+}
+
+.about-text h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: #ffffff; /* Accent color */
+    margin-top: 10px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ffffff;
+}
+
+/* about */
+
+/* Hero Subtitle */
+.hero h2 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-top: 20px;
+    color: var(--text-color);
+}
+
+
+body.dark-mode .hero {
+    background: linear-gradient(to right, #3b3b38, #211f1c), url('hero-image.jpg') center/cover;
+}
+
+/* About Section */
+.about {
+    background: url('AdobeStock_1018162615_Preview.jpeg') center/cover;
+    text-align: center;
+    padding: 100px 20px;
+    color: #ffffff;
+}
+
+body.dark-mode .about {
+    background: url('AdobeStock_1018162615_Preview.jpeg') center/cover;
+    color: var(--dark-mode-text);
+}
+
+/* Services Section */
+.services {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--primary-color);
+}
+
+/* Services Section */
+.services {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--primary-color);
+}
+
+body.dark-mode .services {
+    background: var(--dark-mode-bg);
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Service Card Styling */
+.card {
+    background-color: var(--secondary-color);
+    padding: 20px;
+    border-radius: 15px;
+    border: 2px solid #ffffff;
+    box-shadow: linear-gradient(to right, #000000, #3a3a39);
+    width: 300px;
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 15px 15px 0 0;
+    border-color: #0d382a;
+    shape-image-threshold: var(--card-bg);
+    margin-bottom: 15px;
+    object-fit: cover;
+}
+
+.card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px var(--card-shadow);
+}
+
+/* scroll */
+.create-account {
+    padding: 50px 0;
+    background-color: var(--accent-color); /* Light background for the section */
+    text-align: center;
+}
+
+.create-account h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffffff; /* Match theme colors */
+}
+
+#create-account-form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+#create-account-form label {
+    font-size: 1rem;
+    color: #ffffff;
+    display: block;
+    margin-bottom: 8px;
+}
+
+#create-account-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    font-size: 1rem;
+}
+
+#create-account-form button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2c4f3b;
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#create-account-form button:hover {
+    background-color: #216333; /* Slightly darker green */
+}
+/* account */
+/* Dark Mode Cards */
+body.dark-mode .card {
+    background-color: #242321;
+    color: var(--dark-mode-text);
+}
+
+.card:hover {
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+body.dark-mode .services {
+    background: var(--dark-mode-bg);
+}
+
+/* Contact Section */
+.contact {
+    max-width: 700px;
+    padding: 50px 20px;
+    text-align: center;
+    background: linear-gradient(to right, #0d4e36, #152c02);
+    border-radius: 50px;
+    border: 2px solid #06381b;
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+    animation: fadeIn 1.5s ease-in-out;
+
+    /* Center the contact form horizontally and vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 70vh; /* Full viewport height */
+}
+
+body.dark-mode .contact {
+    background:  linear-gradient(to right, #2e8654, #2a4e0d);
+    color: var(--dark-mode-text);
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact form {
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.contact input,
+.contact textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #2a2927;
+    border-radius: 25px;
+}
+
+.contact button {
+    width: 100%;
+    padding: 15px;
+    background-color: #232121;
+    border: none;
+    border-radius: 25px;
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.contact button:hover {
+    background-color: rgb(88, 87, 86);
+    transform: scale(1.05);
+}
+
+/* Footer Section */
+footer {
+    background-color: var(--secondary-color);
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 -4px 8px var(--card-shadow);
+    position: relative;
+    z-index: 1000;
+    background-image: url('AdobeStock_1018162615_Preview.jpeg');
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-icon {
+    font-size: 5rem;
+    color: var(--text-color);
+    transition: color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    color: var(--secondary-color); /* Change color on hover */
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+.social-icon:active {
+    color: var(--accent-color); /* Change color on active */
+}
+
+/* Dark Mode Social Links */
+body.dark-mode .social-icon {
+    color: var(--dark-mode-text);
+}
+
+body.dark-mode .social-icon:hover {
+    color: var(--secondary-color);
+}
+
+body.dark-mode .social-icon:active {
+    color: var(--accent-color);
+}
+
+
+footer p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* 6. Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
